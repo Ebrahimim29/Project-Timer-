@@ -23,3 +23,39 @@ body{
     background: yellowgreen;
     color: chocolate;
 }
+.start_button{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50px;
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}
+.stop_button{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50px;
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}
+.reset_button{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 50px;
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}
+.change_button{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    border-radius: 50px;
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}

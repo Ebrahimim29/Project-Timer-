@@ -4,9 +4,12 @@ import "./Style.css"
 
 
 class Hello extends React.Component{
+        
     render(){
+        console.log(this.props);
+        
         return(
-            <h1>سلام دوست من</h1>
+            <h1>{this.props.title}</h1>
         )
     }
 }
