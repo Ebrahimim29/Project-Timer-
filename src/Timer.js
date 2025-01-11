@@ -2,6 +2,8 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import "./Style.css"
+import TimeList from './TimeList';
+import { TestContext } from './testContext';
 
 var interval;
 class Timer extends React.Component{
@@ -16,6 +18,7 @@ class Timer extends React.Component{
             isStart:false
         }
     }
+static contextType = TestContext;
 startInterval = ()=>{
     if(this.state.isStart==false){
         this.setState({
@@ -61,7 +64,15 @@ resetInterval =()=>{
         })
 
     }
-
+handleSaveTime =()=>{
+    // let h=this.state.hour
+    // let m=this.state.minute
+    // let s=this.state.second
+    // let newTime = `${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}`
+    let newTime = document.querySelector('.Timer').innerHTML;
+    // this.props.setTimeArr([...this.props.timeArr , newTime])    
+    this.context.setTimeArr([...this.context.timeArr , newTime])    
+}
 
 // }
 // componentDidMount(){
@@ -91,7 +102,8 @@ let m=this.state.minute
 let s=this.state.second
         return(
             <>
-            <h2 className='Timer'>
+            {/* <h2 className='Timer' onClick={this.handleSaveTime} style={{color:this.context}}> */}
+            <h2 className='Timer' onClick={this.handleSaveTime}>
             {/* it is {this.state.time} */}
             {/* {this.state.hour + " : " + this.state.minute +" : " +this.state.second} */}
             {`${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}`}
@@ -101,7 +113,15 @@ let s=this.state.second
             <button className="action_button start_button" onClick={this.startInterval}>Start</button>
             <button className="action_button stop_button" onClick={this.stopInterval}>Stop</button>
             <button className="action_button reset_button" onClick={this.resetInterval}>Reset</button>
+            <button className="action_button reset_button" onClick={this.props.handleSetIsLight} 
+            style={{background : this.props.isLight ? "black" : "white" ,
+                color : this.props.isLight ? "white" : "black"
+            }}>{this.props.isLight ? "dark" : "light"}</button>
             </div>
+            {/* <TimeList> */}
+                {/* {this.props.timeArr} */}
+                {/* {this.context.timeArr} */}
+             {/* </TimeList> */}
             </>
         )
 
